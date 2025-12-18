@@ -255,28 +255,79 @@ a {
     bottom: 0;
     background: var(--gradient-hero);
     opacity: 0.1;
-    animation: gradientShift 15s ease infinite;
 }
 
-@keyframes gradientShift {
+/* ===== Colorful Hero Background ===== */
+.hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.65;
+    z-index: 0;
+    animation: blobFloat 14s ease-in-out infinite;
+}
 
-    0%,
-    100% {
-        transform: translateX(0) translateY(0);
+/* Individual blobs */
+.blob-ocean {
+    width: 420px;
+    height: 420px;
+    background: var(--gradient-ocean);
+    top: -15%;
+    left: -10%;
+}
+
+.blob-purple {
+    width: 380px;
+    height: 380px;
+    background: var(--gradient-purple);
+    bottom: -20%;
+    right: -10%;
+    animation-delay: 4s;
+}
+
+.blob-sunset {
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-sunset);
+    top: 35%;
+    left: 20%;
+    animation-delay: 8s;
+}
+
+.blob-blue {
+    width: 340px;
+    height: 340px;
+    background: var(--gradient-blue);
+    top: 10%;
+    left: 55%;
+    animation-delay: 6s;
+}
+
+.blob-coral {
+    width: 320px;
+    height: 320px;
+    background: var(--gradient-coral);
+    bottom: 10%;
+    left: 10%;
+    animation-delay: 10s;
+}
+
+/* Floating animation */
+@keyframes blobFloat {
+    0%, 100% {
+        transform: translate(0, 0);
     }
-
-    25% {
-        transform: translateX(5%) translateY(5%);
-    }
-
     50% {
-        transform: translateX(-5%) translateY(5%);
-    }
-
-    75% {
-        transform: translateX(5%) translateY(-5%);
+        transform: translate(40px, -40px);
     }
 }
+
+/* Keep hero text above blobs */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
 
 .hero-content {
     position: relative;
@@ -292,7 +343,7 @@ a {
 
 .hero-tagline {
     font-size: 1.8rem;
-    color: var(--text-secondary);
+    color: var(--gradient-primary);
     margin-bottom: var(--spacing-md);
     animation: fadeInUp 0.8s ease 0.2s backwards;
 }
@@ -350,8 +401,8 @@ a {
 
 .btn-secondary {
     background: transparent;
-    border: 2px solid;
-    border-image: var(--gradient-ocean) 1;
+    border: 2px;
+    background: var(--gradient-ocean);   
     color: var(--text-primary);
 }
 
@@ -359,6 +410,18 @@ a {
     background: var(--gradient-ocean);
     transform: translateY(-3px);
     box-shadow: var(--shadow-glow-cyan);
+}
+
+.btn-three {
+    background: var(--gradient-purple);
+    border: 2px;   
+    color: var(--text-primary);
+}
+
+.btn-three:hover {
+    background: var(--gradient-purple);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
 }
 
 .scroll-indicator {
@@ -730,12 +793,11 @@ a {
     font-weight: 600;
 }
 
-/* ===== CONTACT SECTION ===== */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Force 4 in one row */
     gap: var(--spacing-md);
-    max-width: 1000px;
+    max-width: 1200px; /* Slightly wider to fit 4 cards nicely */
     margin: 0 auto;
 }
 

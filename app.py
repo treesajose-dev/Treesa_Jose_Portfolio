@@ -12,7 +12,7 @@ def index():
     """Render the portfolio homepage"""
     portfolio_data = {
         'name': 'TREESA JOSE',
-        'tagline': 'MCA Student | Python Developer | AI/ML Enthusiast',
+        'tagline': 'MCA Student | Aspiring Software Developer | Python & AI/ML Enthusiast',
         'email': 'treesajosemadathil@yahoo.com',
         'location': 'Kochi, Kerala',
         'linkedin': 'linkedin.com/in/treesajose-dev',
